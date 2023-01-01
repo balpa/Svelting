@@ -2,6 +2,7 @@
   import Chronometer from "./lib/Chronometer.svelte";
   import Counter from "./lib/Counter.svelte";
   import Header from "./lib/Header.svelte";
+  import RandomData from "./lib/RandomData.svelte";
 
   export let enteredName = "";
   export let isEntered = false;
@@ -33,6 +34,7 @@
       <Header {enteredName} />
       <Counter />
       <Chronometer />
+      <RandomData />
     </div>
   {/if}
 </main>
