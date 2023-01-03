@@ -7,6 +7,10 @@
   export let enteredName = "";
   export let isEntered = false;
 
+  window.addEventListener("keydown", (event) => {
+    if (event.key == "Enter") enter();
+  });
+
   function enter() {
     isEntered = true;
   }
