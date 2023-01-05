@@ -6,13 +6,19 @@
 
   export let enteredName = "";
   export let isEntered = false;
+  export let isEnteredNameValid = undefined;
 
   window.addEventListener("keydown", (event) => {
     if (event.key == "Enter") enter();
   });
 
   function enter() {
-    isEntered = true;
+    if (enteredName != "" && enteredName.length > 1) {
+      isEntered = true;
+      isEnteredNameValid = true;
+    } else {
+      isEnteredNameValid = false;
+    }
   }
   function handleInputOnchange(target) {
     enteredName = target.value;
@@ -29,6 +35,9 @@
         placeholder="Enter name"
         on:change={(e) => handleInputOnchange(e.target)}
       />
+      {#if isEnteredNameValid == false}
+        <span>Please enter a valid name!</span>
+      {/if}
       <button on:click={enter}>Enter</button>
     </div>
   {/if}
@@ -50,5 +59,9 @@
   }
   button {
     margin-top: 10px;
+  }
+
+  span {
+    color: red;
   }
 </style>
