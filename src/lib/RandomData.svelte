@@ -52,7 +52,6 @@
     margin-top: 5px;
     padding: 10px;
     transition: 1s;
-    max-width: 320px;
   }
   div:hover {
     border: 2px solid white;

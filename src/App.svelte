@@ -60,8 +60,10 @@
   button {
     margin-top: 10px;
   }
-
   span {
     color: red;
+  }
+  .card {
+    max-width: 400px;
   }
 </style>
