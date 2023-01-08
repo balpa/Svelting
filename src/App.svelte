@@ -16,10 +16,9 @@
     if (enteredName != "" && enteredName.length > 1) {
       isEntered = true;
       isEnteredNameValid = true;
-    } else {
-      isEnteredNameValid = false;
-    }
+    } else isEnteredNameValid = false;
   }
+
   function handleInputOnchange(target) {
     enteredName = target.value;
   }

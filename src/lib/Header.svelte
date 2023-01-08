@@ -1,4 +1,6 @@
 <script>
+  import LoadingAnimation from "./LoadingAnimation.svelte";
+
   export let enteredName;
   let headerTitle = `Hi, ${enteredName.toLowerCase()}!`;
   let latitude = null;
@@ -17,7 +19,16 @@
 
 <div>
   <h1>{headerTitle}</h1>
+  <LoadingAnimation />
   {#if latitude && longitude}
     <h2>Latitude: {latitude},<br />Longitude: {longitude}</h2>
   {/if}
 </div>
+
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
