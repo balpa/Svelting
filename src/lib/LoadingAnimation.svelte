@@ -2,21 +2,25 @@
   import { onDestroy } from "svelte";
 
   let progress = 0;
+  let progressColor;
 
   function getProgressColor(progress) {
     var r = 255;
     var g = Math.round(255 * (1 - progress));
     var b = 0;
-    console.log("rgb(" + r + "," + g + "," + b + ")");
-    return "rgb(" + r + "," + g + "," + b + ")";
+
+    return (progressColor = "rgb(" + r + "," + g + "," + b + ")");
   }
 
   let intervalId = setInterval(() => {
-    progress = (progress + 0.01) % 1;
+    progress = (progress + 0.005) % 1;
+  }, 10);
+
+  let progressIteration = setInterval(() => {
+    getProgressColor(progress);
   }, 10);
 
   onDestroy(() => clearInterval(intervalId));
-  export let progressColor = getProgressColor(progress);
 </script>
 
 <div class="loading-bar-container">
